@@ -1,0 +1,102 @@
+
+<!-- #Register student html -->
+
+<!-- student_managementapp/templates/student_managementapp/register_student.html -->
+
+   {% load static %}          
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Student</title>
+    <link rel="stylesheet" href="{% static 'student_managementapp/css/styles.css.' %}">
+
+ </head>
+ <body>
+<div class="container">
+    
+ <h1>Register New Student</h1>
+
+<!-- form start from here -->
+
+ <form method = 'post'></form>
+   {%csrf_token %}
+
+
+<div class="form-group">
+
+   <label for="first_name">First name:</label>
+   <input type="text" id="first_name" name="first_name" required><br>
+</div>
+
+<div class="form-group>
+
+   <label for="last_name">Last name:</label>
+   <input type="text" id="last_name" name="last_name" required><br>
+</div>
+
+<div class="form-group">
+
+   <label for="email">Email:</label>
+   <input type="email" id="email" name="><div class=">
+</div>
+
+
+<div class="form-group">
+
+   <label for="phone"><br>Phone:</label>
+   <input type="tel" id="phone" name="phone" required>
+</div>
+
+<div class="form-group">
+
+   <label for="date_joined">Joined_Date:</label>
+   <input type="date" id="date_joined" name="date_joined" required>
+</div>
+
+
+<div class="form-group">
+
+   <label for="role">Role:</label>
+   <select id="role" name="role" required>
+         {%for role in roles %}
+            <option value="{{role.id}}">{{role.name}}</option>
+         {% endfor %}
+   </select>
+</div>
+
+
+<div class="form-group">
+
+   <label>Status:</label>
+   <select id="status" name="status" required>
+      {%for status in statuses %}
+         <option value="{{ status.id}}">{{status.name}}</option>
+      {% endfor %}
+   </select>
+</div>
+
+
+<div class="form-group">
+
+   <label>Cohort:</label>
+   <select id="cohort"  name="cohort" required>
+      {%for cohort in cohorts%}
+         <option value="{{cohort.id}}">{{status.}}</option>
+      {%endfor %}
+   </select>
+</div>
+
+
+
+<button type="submit">Register</button>
+
+ </form>
+    
+</div>
+
+
+ </body>
+ </html>

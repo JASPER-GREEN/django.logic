@@ -1,0 +1,43 @@
+<!-- students_list.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{%endblock%} Student List</title>
+    <link rel="stylesheet" href="{% static 'student_managementapp/css/styles.css.' %}">
+</head>
+<body>
+    <h1>Student List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Cohort</th>
+                <th>Phone</th>
+                <th>Joined_Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td data-label="Name">{{ student.first_name }} {{ student.last_name }}</td>
+                <td data-label="Email">{{ student.email }}</td>
+                <td data-label="Role">{{ student.role.name }}</td>
+                <td data-label="Status">{{ student.status.name }}</td>
+                <td data-label="Cohort">{{ student.cohort.name }}</td>
+                <td data-label="Phone">{{ student.phone }}</td>
+                <td data-label="Joined Date">{{ student.date_joined }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
